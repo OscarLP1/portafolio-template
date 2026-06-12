@@ -1,17 +1,924 @@
 ---
+// src/pages/index.astro
+// Portafolio de Oscar Lozano — Desarrollador Junior
+// Tip: edita los arrays "skills" y "projects" para actualizar el contenido.
 
+const skills = [
+  { group: "Frontend", items: [
+    { name: "HTML5", status: "estable" },
+    { name: "CSS3", status: "estable" },
+    { name: "JavaScript", status: "estable" },
+    { name: "React", status: "estable" },
+    { name: "Astro", status: "estable" },
+    { name: "Tailwind CSS", status: "en progreso" },
+  ]},
+  { group: "Backend", items: [
+    { name: "Node.js", status: "estable" },
+    { name: "Express", status: "en progreso" },
+    { name: "SQL", status: "en progreso" },
+  ]},
+  { group: "Herramientas", items: [
+    { name: "Git & GitHub", status: "estable" },
+    { name: "Figma", status: "estable" },
+    { name: "VS Code", status: "estable" },
+  ]},
+];
+
+const projects = [
+  {
+    code: "FIG. 01",
+    title: "Nombre del proyecto uno",
+    description: "Describe en una o dos líneas qué hace este proyecto y qué problema resuelve. Sé específico sobre tu rol.",
+    tags: ["React", "Vite", "CSS"],
+    repo: "#",
+    demo: "#",
+  },
+  {
+    code: "FIG. 02",
+    title: "Nombre del proyecto dos",
+    description: "Describe en una o dos líneas qué hace este proyecto y qué problema resuelve. Sé específico sobre tu rol.",
+    tags: ["Astro", "Node.js", "API"],
+    repo: "#",
+    demo: "#",
+  },
+  {
+    code: "FIG. 03",
+    title: "Nombre del proyecto tres",
+    description: "Describe en una o dos líneas qué hace este proyecto y qué problema resuelve. Sé específico sobre tu rol.",
+    tags: ["JavaScript", "SQL"],
+    repo: "#",
+    demo: "#",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscar Lozano — Desarrollador Junior</title>
+    <meta name="description" content="Portafolio de Oscar Lozano, desarrollador junior. Proyectos, habilidades y contacto." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- NAV -->
+    <header class="nav">
+      <a href="#top" class="nav__mark">OL<span class="nav__dot">.</span></a>
+      <nav class="nav__links">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#contacto" class="nav__cta">Contacto</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="top" class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <p class="eyebrow">
+          <span class="eyebrow__tag">v1.0</span> Desarrollador junior — en construcción activa
+        </p>
+        <h1 class="hero__title">
+          Oscar<br />Lozano
+        </h1>
+        <p class="hero__lead">
+          Construyo interfaces y pequeños sistemas, pieza por pieza.
+          Me interesa entender cómo funciona el software por dentro:
+          desde la estructura de una API hasta el último píxel en pantalla.
+        </p>
+        <div class="hero__actions">
+          <a href="#proyectos" class="btn btn--primary">Ver proyectos</a>
+          <a href="#contacto" class="btn btn--ghost">Hablemos</a>
+        </div>
+      </div>
+
+      <div class="hero__scene">
+        <div id="scene-container" class="scene-container" aria-hidden="true"></div>
+        <p class="scene-caption">ENSAMBLE — 01 / rotación continua</p>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span></span> scroll
+      </div>
+    </section>
+
+    <!-- SOBRE MI -->
+    <section id="sobre-mi" class="section">
+      <div class="section__head">
+        <span class="section__index">01</span>
+        <h2 class="section__title">Sobre mí</h2>
+      </div>
+      <div class="about">
+        <p class="about__text">
+          Soy un desarrollador junior enfocado en construir productos
+          digitales claros y funcionales. Disfruto el proceso de aprender
+          herramientas nuevas, leer código ajeno y mejorar lo que ya existe.
+          Actualmente estoy buscando mi primera oportunidad para seguir
+          creciendo como desarrollador full stack, trabajar en equipo y
+          aportar en proyectos reales.
+        </p>
+        <dl class="about__specs">
+          <div class="about__spec">
+            <dt>Enfoque</dt>
+            <dd>Desarrollo web full stack</dd>
+          </div>
+          <div class="about__spec">
+            <dt>Estado</dt>
+            <dd>Disponible para nuevas oportunidades</dd>
+          </div>
+          <div class="about__spec">
+            <dt>Ubicación</dt>
+            <dd>Bucaramanga, Colombia</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <section id="habilidades" class="section">
+      <div class="section__head">
+        <span class="section__index">02</span>
+        <h2 class="section__title">Habilidades</h2>
+      </div>
+
+      <div class="skills">
+        {skills.map((group) => (
+          <div class="skills__group">
+            <h3 class="skills__group-title">{group.group}</h3>
+            <ul class="skills__list">
+              {group.items.map((item) => (
+                <li class="skill">
+                  <span class="skill__name">{item.name}</span>
+                  <span class={`skill__status skill__status--${item.status === "estable" ? "ok" : "wip"}`}>
+                    {item.status}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" class="section">
+      <div class="section__head">
+        <span class="section__index">03</span>
+        <h2 class="section__title">Proyectos</h2>
+      </div>
+
+      <div class="projects">
+        {projects.map((project) => (
+          <article class="project">
+            <span class="project__code">{project.code}</span>
+            <h3 class="project__title">{project.title}</h3>
+            <p class="project__desc">{project.description}</p>
+            <ul class="project__tags">
+              {project.tags.map((tag) => (
+                <li>{tag}</li>
+              ))}
+            </ul>
+            <div class="project__links">
+              <a href={project.repo} target="_blank" rel="noopener noreferrer">Código →</a>
+              <a href={project.demo} target="_blank" rel="noopener noreferrer">Demo →</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section section--contact">
+      <div class="section__head">
+        <span class="section__index">04</span>
+        <h2 class="section__title">Contacto</h2>
+      </div>
+
+      <div class="contact">
+        <p class="contact__lead">
+          ¿Tienes un proyecto, una vacante o simplemente quieres
+          conversar sobre desarrollo? Escríbeme.
+        </p>
+        <div class="contact__links">
+          <a href="mailto:tu-correo@ejemplo.com" class="contact__link">
+            <span>Correo</span>
+            <strong>tu-correo@ejemplo.com</strong>
+          </a>
+          <a href="https://github.com/tu-usuario" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <span>GitHub</span>
+            <strong>github.com/tu-usuario</strong>
+          </a>
+          <a href="https://linkedin.com/in/tu-usuario" target="_blank" rel="noopener noreferrer" class="contact__link">
+            <span>LinkedIn</span>
+            <strong>linkedin.com/in/tu-usuario</strong>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>© {new Date().getFullYear()} Oscar Lozano</span>
+      <span>Construido con Astro</span>
+    </footer>
+
+    <style>
+      :root {
+        --bg: #0e1525;
+        --surface: #161f38;
+        --surface-alt: #1c2748;
+        --line: rgba(244, 246, 251, 0.08);
+        --line-bright: rgba(94, 234, 212, 0.18);
+        --text: #f4f6fb;
+        --text-muted: #8a93b3;
+        --accent: #ff6b4a;
+        --accent-2: #5eead4;
+
+        --font-display: "Space Grotesk", sans-serif;
+        --font-body: "Inter", sans-serif;
+        --font-mono: "JetBrains Mono", monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: var(--font-body);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      /* NAV */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1.25rem clamp(1.5rem, 5vw, 4rem);
+        backdrop-filter: blur(8px);
+        background: rgba(14, 21, 37, 0.6);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav__mark {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: 1.25rem;
+        text-decoration: none;
+        letter-spacing: 0.05em;
+      }
+
+      .nav__dot {
+        color: var(--accent);
+      }
+
+      .nav__links {
+        display: flex;
+        gap: clamp(1rem, 3vw, 2.5rem);
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        text-transform: lowercase;
+        letter-spacing: 0.05em;
+      }
+
+      .nav__links a {
+        text-decoration: none;
+        color: var(--text-muted);
+        transition: color 0.2s ease;
+      }
+
+      .nav__links a:hover,
+      .nav__links a:focus-visible {
+        color: var(--text);
+      }
+
+      .nav__cta {
+        color: var(--accent-2) !important;
+      }
+
+      /* HERO */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        align-items: center;
+        gap: 2rem;
+        padding: clamp(6rem, 12vh, 8rem) clamp(1.5rem, 5vw, 4rem) 4rem;
+        overflow: hidden;
+      }
+
+      .hero__grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(var(--line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--line) 1px, transparent 1px);
+        background-size: 64px 64px;
+        mask-image: radial-gradient(circle at 30% 40%, rgba(0,0,0,0.9), transparent 75%);
+        opacity: 0.6;
+        pointer-events: none;
+      }
+
+      .hero__content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .eyebrow {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 0 1.5rem;
+      }
+
+      .eyebrow__tag {
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 0.15rem 0.5rem;
+        border-radius: 2px;
+        font-size: 0.75rem;
+      }
+
+      .hero__title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(3.5rem, 10vw, 7rem);
+        line-height: 0.98;
+        letter-spacing: -0.02em;
+        margin: 0 0 1.5rem;
+      }
+
+      .hero__lead {
+        max-width: 36ch;
+        color: var(--text-muted);
+        font-size: clamp(1rem, 1.1vw, 1.15rem);
+        margin: 0 0 2.5rem;
+      }
+
+      .hero__actions {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        font-family: var(--font-mono);
+        font-size: 0.9rem;
+        text-decoration: none;
+        padding: 0.85rem 1.5rem;
+        border-radius: 4px;
+        border: 1px solid transparent;
+        transition: transform 0.15s ease, border-color 0.2s ease, color 0.2s ease;
+        display: inline-block;
+      }
+
+      .btn--primary {
+        background: var(--accent);
+        color: #14110c;
+        font-weight: 500;
+      }
+
+      .btn--primary:hover {
+        transform: translateY(-2px);
+      }
+
+      .btn--ghost {
+        border-color: var(--line);
+        color: var(--text);
+      }
+
+      .btn--ghost:hover {
+        border-color: var(--accent-2);
+        color: var(--accent-2);
+      }
+
+      /* HERO SCENE */
+      .hero__scene {
+        position: relative;
+        z-index: 1;
+        height: clamp(320px, 50vh, 560px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .scene-container {
+        width: 100%;
+        height: 100%;
+      }
+
+      .scene-container canvas {
+        display: block;
+        width: 100% !important;
+        height: 100% !important;
+      }
+
+      .scene-caption {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        color: var(--text-muted);
+        text-transform: uppercase;
+      }
+
+      .hero__scroll {
+        position: absolute;
+        bottom: 2rem;
+        left: clamp(1.5rem, 5vw, 4rem);
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: lowercase;
+        letter-spacing: 0.1em;
+      }
+
+      .hero__scroll span {
+        width: 1px;
+        height: 28px;
+        background: linear-gradient(to bottom, var(--accent-2), transparent);
+        animation: scroll-pulse 1.8s ease-in-out infinite;
+      }
+
+      @keyframes scroll-pulse {
+        0%, 100% { opacity: 0.2; transform: scaleY(0.6); }
+        50% { opacity: 1; transform: scaleY(1); }
+      }
+
+      /* SECTIONS */
+      .section {
+        position: relative;
+        padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+        border-top: 1px solid var(--line);
+      }
+
+      .section__head {
+        display: flex;
+        align-items: baseline;
+        gap: 1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .section__index {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--accent-2);
+        border: 1px solid var(--line-bright);
+        border-radius: 2px;
+        padding: 0.2rem 0.5rem;
+      }
+
+      .section__title {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(1.75rem, 4vw, 2.5rem);
+        margin: 0;
+      }
+
+      /* SOBRE MI */
+      .about {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr;
+        gap: 3rem;
+        align-items: start;
+      }
+
+      .about__text {
+        font-size: clamp(1rem, 1.3vw, 1.2rem);
+        color: var(--text-muted);
+        max-width: 60ch;
+        margin: 0;
+      }
+
+      .about__specs {
+        display: grid;
+        gap: 1.25rem;
+        margin: 0;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        border-left: 1px solid var(--line-bright);
+        padding-left: 1.5rem;
+      }
+
+      .about__spec dt {
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.7rem;
+        margin-bottom: 0.25rem;
+      }
+
+      .about__spec dd {
+        margin: 0;
+        color: var(--text);
+      }
+
+      /* SKILLS */
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .skills__group-title {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text-muted);
+        margin: 0 0 1rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .skills__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 0.65rem;
+      }
+
+      .skill {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.6rem 0.75rem;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 4px;
+        font-size: 0.9rem;
+      }
+
+      .skill__status {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 0.15rem 0.4rem;
+        border-radius: 2px;
+      }
+
+      .skill__status--ok {
+        color: var(--accent-2);
+        border: 1px solid rgba(94, 234, 212, 0.3);
+      }
+
+      .skill__status--wip {
+        color: var(--accent);
+        border: 1px solid rgba(255, 107, 74, 0.3);
+      }
+
+      /* PROJECTS */
+      .projects {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .project {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        padding: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        transition: border-color 0.2s ease, transform 0.2s ease;
+      }
+
+      .project:hover {
+        border-color: var(--line-bright);
+        transform: translateY(-4px);
+      }
+
+      .project__code {
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.15em;
+        color: var(--accent-2);
+      }
+
+      .project__title {
+        font-family: var(--font-display);
+        font-size: 1.25rem;
+        margin: 0;
+      }
+
+      .project__desc {
+        color: var(--text-muted);
+        font-size: 0.9rem;
+        margin: 0;
+        flex-grow: 1;
+      }
+
+      .project__tags {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--text-muted);
+      }
+
+      .project__tags li {
+        border: 1px solid var(--line);
+        border-radius: 2px;
+        padding: 0.2rem 0.5rem;
+      }
+
+      .project__links {
+        display: flex;
+        gap: 1.25rem;
+        margin-top: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+      }
+
+      .project__links a {
+        text-decoration: none;
+        color: var(--text);
+        border-bottom: 1px solid var(--line);
+        transition: color 0.2s ease, border-color 0.2s ease;
+      }
+
+      .project__links a:hover {
+        color: var(--accent-2);
+        border-color: var(--accent-2);
+      }
+
+      /* CONTACT */
+      .contact {
+        display: grid;
+        gap: 2.5rem;
+      }
+
+      .contact__lead {
+        max-width: 50ch;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        color: var(--text-muted);
+        margin: 0;
+      }
+
+      .contact__links {
+        display: grid;
+        gap: 1px;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .contact__link {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1.1rem 1.5rem;
+        background: var(--surface);
+        text-decoration: none;
+        transition: background 0.2s ease, color 0.2s ease;
+        font-family: var(--font-mono);
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .contact__link span {
+        color: var(--text-muted);
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+      }
+
+      .contact__link strong {
+        font-weight: 500;
+      }
+
+      .contact__link:hover {
+        background: var(--surface-alt);
+        color: var(--accent-2);
+      }
+
+      /* FOOTER */
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.5rem clamp(1.5rem, 5vw, 4rem) 2.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 900px) {
+        .hero {
+          grid-template-columns: 1fr;
+          padding-top: 7rem;
+        }
+
+        .hero__scene {
+          order: -1;
+          height: 320px;
+        }
+
+        .about,
+        .skills {
+          grid-template-columns: 1fr;
+        }
+
+        .about__specs {
+          border-left: none;
+          border-top: 1px solid var(--line-bright);
+          padding-left: 0;
+          padding-top: 1.25rem;
+        }
+
+        .nav__links {
+          gap: 1rem;
+          font-size: 0.75rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hero__scroll span {
+          animation: none;
+        }
+        html {
+          scroll-behavior: auto;
+        }
+      }
+    </style>
+
+    <script>
+      // Escena 3D del héroe: objetos wireframe (estilo "plano técnico")
+      // que rotan lentamente y reaccionan sutilmente al movimiento del mouse.
+      import * as THREE from "https://unpkg.com/three@0.128.0/build/three.module.js";
+
+      const container = document.getElementById("scene-container");
+      if (container) {
+        const scene = new THREE.Scene();
+
+        const camera = new THREE.PerspectiveCamera(
+          45,
+          container.clientWidth / container.clientHeight,
+          0.1,
+          100
+        );
+        camera.position.set(0, 0, 6.5);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        renderer.setSize(container.clientWidth, container.clientHeight);
+        container.appendChild(renderer.domElement);
+
+        // Grupo principal que se inclina con el mouse
+        const group = new THREE.Group();
+        scene.add(group);
+
+        const accent = new THREE.Color(0xff6b4a); // coral
+        const accent2 = new THREE.Color(0x5eead4); // mint
+        const muted = new THREE.Color(0x8a93b3);
+
+        function wireframeFromGeometry(geometry, color, opacity = 1) {
+          const edges = new THREE.EdgesGeometry(geometry);
+          const material = new THREE.LineBasicMaterial({
+            color,
+            transparent: opacity < 1,
+            opacity,
+          });
+          return new THREE.LineSegments(edges, material);
+        }
+
+        // Núcleo: icosaedro
+        const core = wireframeFromGeometry(
+          new THREE.IcosahedronGeometry(1.6, 0),
+          accent2
+        );
+        group.add(core);
+
+        // Anillo orbital: toro
+        const ring = wireframeFromGeometry(
+          new THREE.TorusGeometry(2.6, 0.02, 8, 64),
+          muted,
+          0.6
+        );
+        ring.rotation.x = Math.PI / 2.4;
+        group.add(ring);
+
+        // Cubo satélite
+        const cube = wireframeFromGeometry(
+          new THREE.BoxGeometry(0.6, 0.6, 0.6),
+          accent
+        );
+        group.add(cube);
+
+        // Pequeña esfera satélite
+        const satellite = wireframeFromGeometry(
+          new THREE.IcosahedronGeometry(0.18, 1),
+          accent2
+        );
+        group.add(satellite);
+
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+        let mouseX = 0;
+        let mouseY = 0;
+
+        if (!reduceMotion) {
+          window.addEventListener("mousemove", (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = (e.clientY / window.innerHeight) * 2 - 1;
+          });
+        }
+
+        const clock = new THREE.Clock();
+
+        function animate() {
+          const elapsed = clock.getElapsedTime();
+
+          if (!reduceMotion) {
+            core.rotation.x = elapsed * 0.18;
+            core.rotation.y = elapsed * 0.25;
+
+            ring.rotation.z = elapsed * 0.1;
+
+            const orbitRadius = 2.6;
+            cube.position.set(
+              Math.cos(elapsed * 0.6) * orbitRadius,
+              Math.sin(elapsed * 0.6) * orbitRadius * 0.4,
+              Math.sin(elapsed * 0.6) * orbitRadius
+            );
+            cube.rotation.x = elapsed * 0.8;
+            cube.rotation.y = elapsed * 0.6;
+
+            satellite.position.set(
+              Math.cos(elapsed * 1.1 + 2) * 2.1,
+              Math.sin(elapsed * 0.9) * 1.4,
+              Math.sin(elapsed * 1.1 + 2) * 2.1
+            );
+
+            // Inclinación suave hacia el mouse
+            group.rotation.y += (mouseX * 0.4 - group.rotation.y) * 0.04;
+            group.rotation.x += (-mouseY * 0.3 - group.rotation.x) * 0.04;
+          }
+
+          renderer.render(scene, camera);
+          requestAnimationFrame(animate);
+        }
+
+        animate();
+
+        function handleResize() {
+          const width = container.clientWidth;
+          const height = container.clientHeight;
+          camera.aspect = width / height;
+          camera.updateProjectionMatrix();
+          renderer.setSize(width, height);
+        }
+
+        window.addEventListener("resize", handleResize);
+      }
+    </script>
+  </body>
 </html>
